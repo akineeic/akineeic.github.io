@@ -262,20 +262,21 @@ postProcess = function(result) {
         loadImageToCanvas(e);
     });
 
-    let modelPath = "";
-    let modelInput = document.getElementById('modelInput');
-    modelInput.addEventListener('change', async (e) => {
-        initStatus();
-        modelPath = await loadModel(e);
-        document.getElementById('status').innerHTML = `${modelPath} successfully loaded.`
-    });
-
     let configPath = "";
     let configInput = document.getElementById('configInput');
     configInput.addEventListener('change', async (e) => {
         initStatus();
         configPath = await loadModel(e);
-        document.getElementById('status').innerHTML = `${configPath} successfully loaded.`
+        document.getElementById('status').innerHTML = `${configPath} successfully loaded.`;
+    });
+
+    let modelPath = "";
+    let modelInput = document.getElementById('modelInput');
+    modelInput.addEventListener('change', async (e) => {
+        initStatus();
+        modelPath = await loadModel(e);
+        document.getElementById('status').innerHTML = `${modelPath} successfully loaded.`;
+        configPath = "";
     });
 
     utils.loadOpenCv(() => {
